@@ -21,6 +21,7 @@ async function createCategory(body) {
 
 async function createNote(body) {
   try {
+    console.log(body);
     const note = await Note.create({
       name: body.name,
       description: body.description,

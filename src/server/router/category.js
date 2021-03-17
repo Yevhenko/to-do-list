@@ -23,7 +23,7 @@ category.post('/category', async (req, res, next) => {
   }
 });
 
-category.get('/category:id', async (req, res, next) => {
+category.get('/category/:id', async (req, res, next) => {
   try {
     const { params } = req;
     const noteId = Number(params.id);
@@ -47,7 +47,7 @@ category.get('/category', async (req, res, next) => {
   }
 });
 
-category.put('/category:id', async (req, res, next) => {
+category.put('/category/:id', async (req, res, next) => {
   try {
     const { body, params } = req;
     const noteId = Number(params.id);
@@ -61,7 +61,7 @@ category.put('/category:id', async (req, res, next) => {
   }
 });
 
-category.delete('/category:id', async (req, res, next) => {
+category.delete('/category/:id', async (req, res, next) => {
   try {
     const { params } = req;
     const noteId = Number(params.id);

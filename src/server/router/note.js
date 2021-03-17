@@ -42,7 +42,7 @@ note.get('/note', async (req, res, next) => {
   }
 });
 
-note.put('/note:id', async (req, res, next) => {
+note.put('/note/:id', async (req, res, next) => {
   try {
     const { body, params } = req;
     const noteId = Number(params.id);
@@ -56,7 +56,7 @@ note.put('/note:id', async (req, res, next) => {
   }
 });
 
-note.delete('/note:id', async (req, res, next) => {
+note.delete('/note/:id', async (req, res, next) => {
   try {
     const { params } = req;
     const noteId = Number(params.id);
