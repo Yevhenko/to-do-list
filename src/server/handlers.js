@@ -1,5 +1,4 @@
-const { QueryTypes } = require('sequelize');
-const { Note, Category, sequelize } = require('../db/models');
+const { Note, Category } = require('../db/models');
 
 function errorHandler(err, req, res) {
   if (!err) return res.json('Everything is OK!');
@@ -76,9 +75,7 @@ async function getAllCategories() {
 
 async function getAllNotes() {
   try {
-    const note = await sequelize.query('SELECT * FROM `notes` ORDER BY `actual`', {
-      type: QueryTypes.SELECT,
-    });
+    const note = await Note.findAll({ order: ['actual'] });
 
     return note;
   } catch (error) {
