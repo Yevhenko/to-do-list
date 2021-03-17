@@ -1,9 +1,8 @@
-
 /* eslint-disable no-unused-vars */
 /* eslint-disable implicit-arrow-linebreak */
 module.exports = {
   up: (queryInterface, Sequelize) =>
-    queryInterface.createTable('Categorys', {
+    queryInterface.createTable('Categories', {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -23,5 +22,5 @@ module.exports = {
         type: Sequelize.DATE,
       },
     }),
-  down: (queryInterface, Sequelize) => queryInterface.dropTable('Categorys'),
+  down: (queryInterface, Sequelize) => queryInterface.dropTable('Categories'),
 };

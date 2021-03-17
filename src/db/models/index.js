@@ -1,4 +1,4 @@
-'use strict';
+/* eslint-disable import/no-dynamic-require */
 
 const fs = require('fs');
 const path = require('path');
@@ -15,11 +15,11 @@ if (config.use_env_variable) {
 } else {
   sequelize = new Sequelize(config.database, config.username, config.password, config);
 }
-
 fs.readdirSync(__dirname)
-  .filter((file) => file.indexOf('.') !== 0 && file !== basename && file.slice(-3) === '.js')
+  .filter((file) => file !== basename)
   .forEach((file) => {
-    const model = sequelize.import(path.join(__dirname, file));
+    // eslint-disable-next-line global-require
+    const model = require(path.join(__dirname, file))(sequelize, Sequelize.DataTypes);
     db[model.name] = model;
   });
 
